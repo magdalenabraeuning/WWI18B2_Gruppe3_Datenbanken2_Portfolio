@@ -123,39 +123,39 @@ Fremdschlüssel:
     }
 
     public void setGeburtsdatum( Date Geburtsdatum ) {
-        this.Geburtstag = Geburtstag;
+        this.Geburtsdatum = Geburtsdatum;
     }
 
 
-    public Set<Session> getSessions() {
-        return Collections.unmodifiableSet( sessions );
+    public Set<Kunden_Email> getKundenemails() {
+        return Collections.unmodifiableSet( kundenemails );
     }
 
-    public void setSessions( Set<Session> sessions ) {
-        this.sessions = new HashSet<>( sessions );
+    public void setKundenemails( Set<Kunden_Email> kundenemails ) {
+        this.kundenemails = new HashSet<>( kundenemails );
     }
 
 
-    public void addSession( Session session ) {
-        if ( session == null ) {
-            throw new NullPointerException( "Can't add null Session" );
+    public void addKundenemail( Kunden_Email kundenemail ) {
+        if ( kundenemail == null ) {
+            throw new NullPointerException( "Can't add null Kundenemails" );
         }
 
-        if ( !this.sessions.contains( session ) ) {
-            this.sessions.add( session );
-            session.setBesucher( this );
+        if ( !this.kundenemails.contains( kundenemail ) ) {
+            this.kundenemails.add( kundenemail );
+            //kundenemail.setKunde( this );                             // in Kundenemail Klasse noch definieren
         }
     }
 
 
-    public void removeSession( Session session ) {
-        if ( session == null ) {
-            throw new NullPointerException( "Can't remove null Session" );
+    public void removeKundenemail( Kunden_Email kundenemail ) {
+        if ( kundenemail == null ) {
+            throw new NullPointerException( "Can't remove null Kundenemails" );
         }
 
-        if ( this.sessions.contains( session ) ) {
-            this.sessions.remove( session );
-            session.setBesucher( null );
+        if ( this.kundenemails.contains( kundenemail ) ) {
+            this.kundenemails.remove( kundenemail );
+            //kundenemail.setKunde( null );                             // in Kundenemail Klasse noch definieren
         }
     }
 
@@ -170,8 +170,8 @@ Fremdschlüssel:
             return false;
         }
 
-        Besucher besucher = (Besucher) o;
-        return Objects.equals( IP_Adresse, besucher.IP_Adresse );
+        Kunde kunde = (Kunde) o;
+        //return Objects.equals( , kunde. );
     }
 
 
