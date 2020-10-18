@@ -5,11 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Time;
 
 @Entity
 @Table(name = "Lieferung")
-public class Lieferung {
+public class Lieferung implements Serializable {
 
     // MUss noch zu SQL Datei hinzugefügt werden
 

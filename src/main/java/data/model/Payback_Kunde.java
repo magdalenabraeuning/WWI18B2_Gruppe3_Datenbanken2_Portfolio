@@ -1,12 +1,13 @@
 package data.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
 @Table(name = "Payback_Kunde")
-public class Payback_Kunde extends Kunde {                            //EIGENTLICH PAYBACK-KUNDE und Vererbung -> änderung noch abklären ODER NOCH BESSER Punktestand einfach als optionales Attribut
+public class Payback_Kunde extends Kunde implements Serializable {                            //EIGENTLICH PAYBACK-KUNDE und Vererbung -> änderung noch abklären ODER NOCH BESSER Punktestand einfach als optionales Attribut
 
                                                             // NICHT IN RELATIONEN SCHREIBWEISE GEFUNDEN
                                                             // ABGELEITET AUS ER_MODELL

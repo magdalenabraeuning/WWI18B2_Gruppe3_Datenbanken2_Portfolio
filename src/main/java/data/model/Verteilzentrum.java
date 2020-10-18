@@ -1,6 +1,7 @@
 package data.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Verteilzentrum")
-public class Verteilzentrum {
+public class Verteilzentrum implements Serializable {
 
 /*
     Contractor-ID INTEGER,

@@ -2,13 +2,14 @@ package data.model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "Anschrift")
-public class Anschrift {
+public class Anschrift implements Serializable {
 
     /* muss noch in SQL Datei eingebunden werden
     * */

@@ -2,11 +2,12 @@ package data.model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name = "Kunde")
-public class Kunde extends Besucher{                //Stimmt das???
+public class Kunde extends Besucher implements Serializable {                //Stimmt das???
 
     /*(
 Von Vererbung Besucher:

@@ -4,11 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "Versanddienstleister")
-public class Versanddienstleister {
+public class Versanddienstleister implements Serializable {
   /*  Contractor-ID INTEGER,
     Firmenname TEXT,
     Bestellnummer INTEGER, // Muss raus, da neue Entität "Lieferung"

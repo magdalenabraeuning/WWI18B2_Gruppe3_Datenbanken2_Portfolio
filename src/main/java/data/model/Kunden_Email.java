@@ -1,4 +1,6 @@
 package data.model;
 
-public class Kunden_Email {
+import java.io.Serializable;
+
+public class Kunden_Email implements Serializable {
 }
