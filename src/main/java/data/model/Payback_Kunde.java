@@ -21,7 +21,6 @@ public class Payback_Kunde extends Kunde {                            //EIGENTLI
     @Column(name = "Payback_Punktestand", nullable = false)
     protected Integer Payback_Punktestand;
 
-                                                                    //Anschrift und Name eigentlich bei Kundenkonto hinterlegt -> andere Attribute finden
-
+    // WAS muss noch wegen Vererbung hinzu?
 
 }

@@ -77,6 +77,7 @@ public class Besucher implements Serializable {
     }
 
 
+    //da 1-Besucher zu m-Session
     public Set<Session> getSessions() {
         return Collections.unmodifiableSet( sessions );
     }
