@@ -28,8 +28,8 @@ Steuersatz INTEGER(100), /* #In Prozent
     Gesamtsumme INTEGER,
 
 Fremdschlüssel:
-    Newsletter-ID INTEGER,                          //Nicht sicher ob n:m beziehung zwischen Newsletter und Kunde; bei Kunde würde so mehrere N-IDs stehen und wenn nicht gäbe es nur ein Newsletter womit die Tabelle unnötig ist
-    Contractor-ID INTEGER,
+    Newsletter-ID INTEGER,                          //Fällt weg wegen Kundenemail zwischen Newsletter und Kunde, Kundennummer mapped by Kunden_Email
+    Contractor-ID INTEGER,                          //Fällt weg da dazwischen Lieferung, Lieferung bekommt Kundennummer
     Anschrift_ID Integer;
     */
 
@@ -59,11 +59,20 @@ Fremdschlüssel:
     @OneToMany(mappedBy = "Kunden_E_Mail", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     protected Set<Kunden_Email> kundenemails;
 
+    @OneToMany(mappedBy = "Lieferung", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    protected Set<Lieferung> lieferungen;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Anschrift_ID", nullable = false)
+    protected Anschrift anschrift;
+
+
     public Kunde() {
         kundenemails = new HashSet<>();
+        lieferungen = new HashSet<>();
     }
 
-    //
+
     public Integer getKundennummer() {
         return Kundennummer;
     }
@@ -127,6 +136,7 @@ Fremdschlüssel:
     }
 
 
+    //Alles zu Kundennummer als Sekundärschlüssel bei Kunden_Email
     public Set<Kunden_Email> getKundenemails() {
         return Collections.unmodifiableSet( kundenemails );
     }
@@ -159,6 +169,50 @@ Fremdschlüssel:
         }
     }
 
+    //Alles zu Kundennummer als Sekundärschlüssel bei Lieferung
+    public Set<Lieferung> getLieferungen() {
+        return Collections.unmodifiableSet( lieferungen );
+    }
+
+    public void setLieferungen( Set<Lieferung> lieferungen ) {
+        this.lieferungen = new HashSet<>( lieferungen );
+    }
+
+
+    public void addLieferung( Lieferung lieferung ) {
+        if ( lieferung == null ) {
+            throw new NullPointerException( "Can't add null Lieferungen" );
+        }
+
+        if ( !this.lieferungen.contains( lieferung ) ) {
+            this.lieferungen.add( lieferung );
+            //lieferung.setKunde( this );                             // in Lieferung Funktion noch definieren
+        }
+    }
+
+
+    public void removeLieferung( Lieferung lieferung ) {
+        if ( lieferung == null ) {
+            throw new NullPointerException( "Can't remove null Lieferungen" );
+        }
+
+        if ( this.lieferungen.contains( lieferung ) ) {
+            this.lieferungen.remove( lieferung );
+            //lieferung.setKunde( null );                             // in Lieferung Funktion noch definieren
+        }
+    }
+
+
+    //Alles zu Anschrift_ID als Sekundärschlüssel in dieser Klasse Kunde
+    public Anschrift getAnschrift() {
+        return anschrift;
+    }
+
+    public void setAnschrift( Anschrift anschrift ) {
+        this.anschrift = anschrift;
+    }
+
+
 
     @Override
     public boolean equals( Object o ) {
@@ -171,15 +225,15 @@ Fremdschlüssel:
         }
 
         Kunde kunde = (Kunde) o;
-        //return Objects.equals( , kunde. );
+        return Objects.equals( Kundennummer , kunde.Kundennummer );
     }
 
 
     @Override
     public int hashCode() {
-        return Objects.hash( IP_Adresse, Endgeraet, Browser );
+        return Objects.hash( Kundennummer, Vorname, Nachname, Passwort, Email_Adresse, Newsletter_Anmeldung, Geburtsdatum, anschrift);
     }
-//
+
 
 
 

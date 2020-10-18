@@ -122,7 +122,7 @@ public class Sortiment implements Serializable {
 
         if ( !this.kategorien.contains( kategorie ) ) {
             this.kategorien.add( kategorie );
-            kategorie.setSortiment( this );                                     //noch hinzufügen bei Kategorie klasse
+            //kategorie.setSortiment( this );                                     //noch hinzufügen bei Kategorie klasse
         }
     }
 
@@ -134,7 +134,7 @@ public class Sortiment implements Serializable {
 
         if ( this.kategorien.contains( kategorie ) ) {
             this.kategorien.remove( kategorie );
-            kategorie.setSortiment( null );                                     //noch hinzufügen bei Kategorie klasse
+            //kategorie.setSortiment( null );                                     //noch hinzufügen bei Kategorie klasse
         }
     }
 
