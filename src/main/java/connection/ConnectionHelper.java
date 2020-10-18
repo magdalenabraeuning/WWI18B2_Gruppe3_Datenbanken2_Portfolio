@@ -15,7 +15,7 @@ public class ConnectionHelper {
 
 
     public static EntityManager getConnection() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "Onlinehandel" );
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "Einzelhandel" );
         EntityManager em = entityManagerFactory.createEntityManager();
 
         LOGGER.info( "# --- Connection established ---" );
