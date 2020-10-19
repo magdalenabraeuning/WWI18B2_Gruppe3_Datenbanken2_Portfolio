@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
 
 
-@DisplayName("Database Kunde tests")
+@DisplayName("Database TestKlasse tests")
 public class KundeTest {
 
     @Test

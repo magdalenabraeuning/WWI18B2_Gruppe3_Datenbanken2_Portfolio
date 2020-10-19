@@ -61,6 +61,11 @@ WARNING: javax.persistence.spi::No valid providers found.
             <artifactId>log4j-core</artifactId>
             <version>2.13.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate-entitymanager-</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>4.3.10</version>
+        </dependency>
     </dependencies>
 
 

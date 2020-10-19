@@ -2,7 +2,8 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
     <persistence-unit name="Einzelhandel">
-        <class>data.model.Kunde</class>
+        <!--<provider>org.hibernate.cfg.HibernatePersistence</provider>-->
+        <class>data.model.TestKlasse</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
